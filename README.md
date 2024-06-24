@@ -164,7 +164,7 @@ This section provides some important tips for interacting with this repository:
 
 ### Home Page with Login
 
-![Home Page with Login](https://github.com/MartaNaranjoEipperle/baby-tools-shop/blob/master/project_images/capture_20220323080815407.jpeg)
+![Home Page with Login](https://github.com/MartaNaranjoEipperle/baby-tools-shop-forked/blob/master/project_images/capture_20220323080815407.jpeg)
 
 ### Home Page with Filter
 
@@ -172,16 +172,16 @@ This section provides some important tips for interacting with this repository:
 
 ### Product Detail Page
 
-![Product Detail Page](https://github.com/MartaNaranjoEipperle/baby-tools-shop/blob/master/project_images/capture_20220323080934541.jpg)
+![Product Detail Page](https://github.com/MartaNaranjoEipperle/baby-tools-shop-forked/blob/master/project_images/capture_20220323080934541.jpg)
 
 ### Home Page without Login
 
-![Home Page without Login](https://github.com/MartaNaranjoEipperle/baby-tools-shop/blob/master/project_images/capture_20220323080953570.jpeg)
+![Home Page without Login](https://github.com/MartaNaranjoEipperle/baby-tools-shop-forked/blob/master/project_images/capture_20220323080953570.jpeg)
 
 ### Register Page
 
-![Register Page](https://github.com/MartaNaranjoEipperle/baby-tools-shop/blob/master/project_images/capture_20220323081016022.jpg)
+![Register Page](https://github.com/MartaNaranjoEipperle/baby-tools-shop-forked/blob/master/project_images/capture_20220323081016022.jpg)
 
 ### Login Page
 
-![Login Page](https://github.com/MartaNaranjoEipperle/baby-tools-shop/blob/master/project_images/capture_20220323081044867.jpg)
+![Login Page](https://github.com/MartaNaranjoEipperle/baby-tools-shop-forked/blob/master/project_images/capture_20220323081044867.jpg)
