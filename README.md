@@ -62,8 +62,23 @@ This repository contains an e-commerce project for baby tools developed with Dja
     ```sh
     python manage.py migrate
     ```
+6. **Create a `.env` file:**
 
-6. **Start the development server:**
+    Create a `.env` file in the root of your project with the following content:
+
+    ```plaintext
+    DJANGO_SECRET_KEY=your_secret_key
+    DATABASE_PASSWORD=your_database_password
+    DATABASE_NAME=your_database_name
+    DATABASE_USER=your_database_user
+    DATABASE_HOST=your_database_host
+    DATABASE_PORT=your_database_port
+    DEBUG=True
+    ```
+
+    **Note:** Make sure the `.env` file is listed in your `.gitignore` file to avoid committing it to your repository.
+
+7. **Start the development server:**
 
     ```sh
     python manage.py runserver
@@ -131,24 +146,33 @@ This repository contains an e-commerce project for baby tools developed with Dja
     # Base image
     FROM python:3.10-alpine
 
+    # Default values for environment variables
+    ARG WORKDIR=/code
+    ARG PORT=8025
+
     # Working directory inside the container
-    WORKDIR /code
+    WORKDIR ${WORKDIR}
 
     # Copy requirements.txt and install dependencies
     COPY requirements.txt .
+
     RUN pip install -r requirements.txt
 
     # Copy the rest of the code
     COPY . .
 
     # Expose port
-    EXPOSE 8025
+    EXPOSE ${PORT}
+
+    # Load environment variables
+    ENV DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
+    ENV DATABASE_PASSWORD=${DATABASE_PASSWORD}
 
     # Entry point for the application
     ENTRYPOINT ["python", "babyshop_app/manage.py"]
 
     # Default command to start the server
-    CMD ["runserver", "0.0.0.0:8025"]
+C   MD ["runserver", "0.0.0.0:8025"]
     ```
 
     Use `docker build -t myproject .` to build the Docker image and `docker run -p 8025:8025 myproject` to start the application in a container.
@@ -164,7 +188,7 @@ This section provides some important tips for interacting with this repository:
 
 ### Home Page with Login
 
-![Home Page with Login](https://github.com/MartaNaranjoEipperle/baby-tools-shop-forked/project_images/capture_20220323080815407.jpeg)
+![Home Page with Login](https://github.com/MartaNaranjoEipperle/baby-tools-shop-forked/blob/project_images/capture_20220323080815407.jpeg)
 
 ### Home Page with Filter
 
