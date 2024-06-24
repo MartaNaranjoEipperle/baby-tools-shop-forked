@@ -57,7 +57,10 @@ ROOT_URLCONF = 'babyshop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["templates"],
+        'DIRS': [
+           os.path.join(BASE_DIR, 'templates'),
+           os.path.join(BASE_DIR, 'products'), 
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
