@@ -164,7 +164,7 @@ This section provides some important tips for interacting with this repository:
 
 ### Home Page with Login
 
-![Home Page with Login](https://github.com/MartaNaranjoEipperle/baby-tools-shop-forked/blob/master/project_images/capture_20220323080815407.jpeg)
+![Home Page with Login](https://github.com/MartaNaranjoEipperle/baby-tools-shop-forked/project_images/capture_20220323080815407.jpeg)
 
 ### Home Page with Filter
 
