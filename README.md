@@ -143,39 +143,59 @@ This repository contains an e-commerce project for baby tools developed with Dja
     Here's an example Dockerfile content for your Django application:
 
     ```dockerfile
-    # Base image
     FROM python:3.10-alpine
 
-    # Default values for environment variables
-    ARG WORKDIR=/code
+    ARG WORKDIR=/app
     ARG PORT=8025
 
-    # Working directory inside the container
     WORKDIR ${WORKDIR}
 
-    # Copy requirements.txt and install dependencies
     COPY requirements.txt .
 
-    RUN pip install -r requirements.txt
+    RUN pip install --upgrade pip && \
+    pip install -r requirements.txt
 
-    # Copy the rest of the code
     COPY . .
 
-    # Expose port
+    WORKDIR /app/babyshop_app
+
+    RUN python manage.py makemigrations && \ 
+        python manage.py migrate && \
+        python manage.py collectstatic
+
     EXPOSE ${PORT}
 
-    # Load environment variables
     ENV DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
     ENV DATABASE_PASSWORD=${DATABASE_PASSWORD}
 
-    # Entry point for the application
-    ENTRYPOINT ["python", "babyshop_app/manage.py"]
+    ENTRYPOINT ["python", "manage.py"]
 
-    # Default command to start the server
-C   MD ["runserver", "0.0.0.0:8025"]
+    CMD ["runserver", "0.0.0.0:8025"]
     ```
 
-    Use `docker build -t myproject .` to build the Docker image and `docker run -p 8025:8025 myproject` to start the application in a container.
+## Creating a Docker Volume
+
+After building the Docker image (`babyshop`), create a Docker volume named `babyshop_db` to persist the database data.
+
+```sh
+docker volume create babyshop_db
+```
+
+## Running the Docker Container
+
+Run the Docker container using the following command:
+
+```sh
+docker run -p 8025:8025 -v babyshop_db:/app/db --name babyshop -d babyshop
+```
+
+## Build the Docker Image
+
+Build the Docker image using the following command:
+
+```sh
+docker build -t babyshop .
+```
 
 ## Notes
 
