@@ -31,38 +31,32 @@ This repository contains an e-commerce project for baby tools developed with Dja
 
 ### Quickstart Guide
 
-1. **Clone the repository:**
 
-    ```sh
-    git clone https://github.com/MartaNaranjoEipperle/baby-tools-shop.git
-    cd baby-tools-shop
-    ```
-
-2. **Create and activate the virtual environment:**
+1. **Create and activate the virtual environment:**
 
     ```sh
     python -m venv venv
     source venv/bin/activate   # On Windows: venv\Scripts\activate
     ```
 
-3. **Generate `requirements.txt` based on installed packages:**
+2. **Generate `requirements.txt` based on installed packages:**
 
     ```sh
     pip freeze -l > requirements.txt
     ```
 
-4. **Install dependencies from `requirements.txt`:**
+3. **Install dependencies from `requirements.txt`:**
 
     ```sh
     pip install -r requirements.txt
     ```
 
-5. **Apply Django migrations:**
+4. **Apply Django migrations:**
 
     ```sh
     python manage.py migrate
     ```
-6. **Create a `.env` file:**
+5. **Create a `.env` file:**
 
     Create a `.env` file in the root of your project with the following content:
 
@@ -78,13 +72,31 @@ This repository contains an e-commerce project for baby tools developed with Dja
 
     **Note:** Make sure the `.env` file is listed in your `.gitignore` file to avoid committing it to your repository.
 
-7. **Start the development server:**
+6. **Start the development server:**
 
     ```sh
     python manage.py runserver
     ```
 
     Open your browser and go to `http://127.0.0.1:8000` to view the application.
+
+7. **Create superuser:**
+
+    To create a superuser for accessing the Django admin interface and managing your application:
+
+    ```sh
+    python manage.py createsuperuser
+    ```
+
+    Follow the prompts to enter a username, email address, and password for the superuser.
+
+    After creating the superuser, you can access the Django admin interface by starting the development server:
+
+    ```sh
+    python manage.py runserver
+    ```
+
+    Then, open your browser and go to [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/) to log in with the superuser credentials and manage your application data.
 
 ## Usage
 
@@ -140,7 +152,6 @@ This repository contains an e-commerce project for baby tools developed with Dja
 
 - **Dockerfile**: The Dockerfile is available in the root directory of this repository. It describes the configuration to build a Docker image that runs the application. You can use it to isolate and run your application in a Docker environment.
 
-    Here's an example Dockerfile content for your Django application:
 
     ```dockerfile
     FROM python:3.10-alpine
@@ -186,7 +197,7 @@ docker volume create babyshop_db
 Run the Docker container using the following command:
 
 ```sh
-docker run -p 8025:8025 -v babyshop_db:/app/db --name babyshop -d babyshop
+docker run -p 8025:8025 -v babyshop_db:/app/db --name babyshop -d --rm babyshop:08.07.2024
 ```
 
 ## Build the Docker Image
@@ -194,7 +205,7 @@ docker run -p 8025:8025 -v babyshop_db:/app/db --name babyshop -d babyshop
 Build the Docker image using the following command:
 
 ```sh
-docker build -t babyshop .
+docker build -t babyshop:08.07.2024 .
 ```
 
 ## Notes
