@@ -214,9 +214,9 @@ This section provides some important tips for interacting with this repository:
 
 ![Home Page with Filter](project_images/capture_20220323080840305.jpeg)
 
-### Product Detail Page
+### Product Detail Page 
 
-![Product Detail Page](project_images/capture_20220323080934541.jpg)
+![Product Detail Page](project_images/capture_20220323080934541.jpeg)
 
 ### Home Page without Login
 
