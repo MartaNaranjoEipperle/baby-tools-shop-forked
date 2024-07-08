@@ -170,7 +170,7 @@ This repository contains an e-commerce project for baby tools developed with Dja
 
     ENTRYPOINT ["python", "manage.py"]
 
-    CMD ["runserver", "0.0.0.0:8025"]
+    CMD ["runserver", "0.0.0.0:${PORT}"]
     ```
 
 ## Creating a Docker Volume
