@@ -113,7 +113,7 @@ This repository contains an e-commerce project for baby tools developed with Dja
     COPY requirements.txt .
 
     RUN pip install --upgrade pip && \
-    pip install -r requirements.txt
+        pip install -r requirements.txt
 
     COPY . .
 
@@ -146,15 +146,44 @@ docker volume create babyshop_db
 Run the Docker container using the following command:
 
 ```sh
-docker run -p 8025:8025 -v babyshop_db:/app/db --name babyshop -d --rm babyshop:08.07.2024
+docker run 
+-p 8025:8025 
+-v babyshop_db:/app/db 
+--name babyshop 
+-d 
+--rm 
+babyshop:08_07_2024
 ```
+### Description of Each Part
+
+- **`docker run`**: 
+  This command starts a new Docker container from a specified image.
+
+- **`-p 8025:8025`**:
+  Maps port 8025 on the host to port 8025 in the container. This is useful for accessing services in the container from outside, such as a web application or a database.
+
+- **`-v babyshop_db:/app/db`**:
+  Binds the volume `babyshop_db` on the host to the `/app/db` directory in the container. This allows data to persist between container restarts and ensures that the database data is retained.
+
+- **`--name babyshop`**:
+  Assigns the name `babyshop` to the container. This makes it easier to manage and reference the container in future commands.
+
+- **`-d`**:
+  Runs the container in detached mode, meaning it runs in the background and does not block the terminal.
+
+- **`--rm`**:
+  Automatically removes the container when it stops. This is useful for saving space and avoiding unnecessary containers.
+
+- **`babyshop:08_07_2024`**:
+  Specifies the `babyshop` image with the tag `08_07_2024` to use for starting the container. The tag helps to distinguish between different versions of the image.
+
 
 ## Build the Docker Image
 
 Build the Docker image using the following command:
 
 ```sh
-docker build -t babyshop:08.07.2024 .
+docker build -t babyshop:08_07_2024 .
 ```
 
 ## Notes
