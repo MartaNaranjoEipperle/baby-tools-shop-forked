@@ -25,4 +25,4 @@ ENV DATABASE_PASSWORD=${DATABASE_PASSWORD}
 
 ENTRYPOINT ["python", "manage.py"]
 
-CMD ["runserver", "0.0.0.0:8025"]
+CMD ["runserver", "0.0.0.0:${PORT}"]
