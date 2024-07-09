@@ -105,7 +105,7 @@ This repository contains an e-commerce project for baby tools developed with Dja
     ```dockerfile
     FROM python:3.10-alpine
 
-    ENV WORKDIR=/app
+    ARG WORKDIR=/app
     ENV PORT=8025
 
     WORKDIR ${WORKDIR}
@@ -128,9 +128,9 @@ This repository contains an e-commerce project for baby tools developed with Dja
     ENV DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
     ENV DATABASE_PASSWORD=${DATABASE_PASSWORD}
 
-    ENTRYPOINT ["sh", "-c", "python manage.py"]
+    ENTRYPOINT ["python", "manage.py"]
 
-    CMD ["sh", "-c", "runserver 0.0.0.0:${PORT:-8025}"]
+    CMD ["runserver", "0.0.0.0:${PORT:-8025}"]
     ```
 
 ## Creating a Docker Volume
