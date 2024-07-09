@@ -23,6 +23,6 @@ EXPOSE ${PORT}
 ENV DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
 ENV DATABASE_PASSWORD=${DATABASE_PASSWORD}
 
-ENTRYPOINT ["python", "manage.py"]
+ENTRYPOINT ["sh", "-c", "python manage.py"]
 
-CMD ["runserver", "0.0.0.0:${PORT}"]
+CMD ["sh", "-c", "runserver 0.0.0.0:${PORT:-8025}"]
