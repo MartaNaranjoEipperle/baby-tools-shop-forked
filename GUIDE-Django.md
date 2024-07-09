@@ -9,9 +9,9 @@ This file contains instructions for configuring and using the Django application
 
 ### Configuration
 
-- Django settings and configurations are located in `babyshop_app/babyshop/settings.py`. Here, you can modify database settings, installed apps, and middleware, for example.
+- Django settings and configurations are located in `babyshop_app/babyshop/settings.py`. Here, you can modify database settings, installed apps, and middleware, among others.
 
-- To add template directories (`templates`), we added the following paths under `DIRS` in the settings:
+- To add template directories (`templates`), the following paths were included under `DIRS` in the settings:
     ```python
     TEMPLATES = [
         {
@@ -24,11 +24,11 @@ This file contains instructions for configuring and using the Django application
         },
     ]
     ```
-    This change allows Django to search additional directories for templates (HTML files), allowing us to store templates centrally in `templates` and specifically for products in `products`.
+    This modification allows Django to search additional directories for templates (HTML files), enabling us to centralize our templates in `templates` and specific product templates in `products`.
 
 ### Adjusting Routes
 
-- Routing information can be found in `babyshop_app/babyshop/urls.py`. Here are the changes we made:
+- Routing information can be found in `babyshop_app/babyshop/urls.py`. Below are the relevant changes:
 
 - **views.py**:
   ```python
@@ -51,6 +51,8 @@ This file contains instructions for configuring and using the Django application
 
 ## Media
 
-- I created a directory named `media` under `babyshop_app/babyshop/media` to store images and other media files.
+- I created a directory named `media` under `babyshop_app/babyshop/media` to store images and other media files. This directory is crucial for storing product images and other media assets used in the application.
 
-- To populate the media directory, I logged in to the admin page (`/admin`) and added products with categories and descriptions. These actions populated the `media` directory with photos.
+- To populate the `media` directory, I logged into the Django admin page (`/admin`) and added products with associated categories and descriptions. These actions automatically populated the `media` directory with the necessary photos and media files.
+
+For further reference on configuring media handling in Django, refer to the [Django documentation on managing files](https://docs.djangoproject.com/en/stable/topics/files/).
